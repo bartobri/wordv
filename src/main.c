@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "main.h"
 #include "wordlist.h"
 #include "trans.h"
 
@@ -17,18 +18,19 @@ int main(int argc, char *argv[]) {
 	char *word2 = NULL;
 	char *tmp = NULL;
 	char *tmp2 = NULL;
-	char *wordFilePath = NULL;
-	FILE *wordFile;
+	char *wordListName = DEFAULT_WORD_LIST;
+	char *wordListPath = NULL;
+	FILE *wordList;
 	
 	// Initialize my word list
 	wordlist_init();
 	trans_init();
 	
 	// Check command options
-	while ((o = getopt(argc, argv, "w:")) != -1) {
+	while ((o = getopt(argc, argv, "l:")) != -1) {
 		switch (o) {
-			case 'w':
-				wordFilePath = optarg;
+			case 'l':
+				wordListName = optarg;
 				break;
 			case '?':
 				if (isprint(optopt))
@@ -39,13 +41,18 @@ int main(int argc, char *argv[]) {
 		}
 	}
 	
+	// Generate full word list path
+	wordListPath = malloc(strlen(WORD_LIST_DIR) + strlen(wordListName) + 1);
+	strcpy(wordListPath, WORD_LIST_DIR);
+	strcat(wordListPath, wordListName);
+	
 	// Open word file
-	if ((wordFile = fopen(wordFilePath, "r")) == NULL) {
-		main_shutdown("Word file not found.");
+	if ((wordList = fopen(wordListPath, "r")) == NULL) {
+		main_shutdown("Word list not found.");
 	}
 	
 	// Load all words in the list
-	while (getline(&word, &n, wordFile) > 0) {
+	while (getline(&word, &n, wordList) > 0) {
 		if (word[strlen(word) - 1] == '\n') {
 			word[strlen(word) - 1] = '\0';
 		}
@@ -314,7 +321,7 @@ int main(int argc, char *argv[]) {
 	}
 	
 	// Close word file
-	fclose(wordFile);
+	fclose(wordList);
 
 	return 0;
 }
