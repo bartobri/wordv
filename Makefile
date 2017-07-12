@@ -17,11 +17,11 @@ CFLAGS ?= -Wextra -Wall -iquote$(SRC)
 
 .PHONY: all install uninstall clean
 
-EXES = words
+EXES = wordv
 
 all: $(EXES)
 
-words: $(OBJ)/wordlist.o $(OBJ)/trans.o $(OBJ)/main.o | $(BIN)
+wordv: $(OBJ)/wordlist.o $(OBJ)/trans.o $(OBJ)/main.o | $(BIN)
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $^
 
 $(OBJ)/%.o: $(SRC)/%.c | $(OBJ)
@@ -37,3 +37,9 @@ clean:
 	rm -rf $(BIN)
 	rm -rf $(OBJ)
 
+install:
+	install -d $(DESTDIR)$(bindir)
+	cd $(BIN) && install $(EXES) $(DESTDIR)$(bindir)
+
+uninstall:
+	for exe in $(EXES); do rm $(DESTDIR)$(bindir)/$$exe; done
