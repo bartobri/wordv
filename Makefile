@@ -11,6 +11,7 @@ mandir = $(datarootdir)/man
 BIN=bin
 OBJ=obj
 SRC=src
+LISTS=lists
 
 CC ?= gcc
 CFLAGS ?= -Wextra -Wall -iquote$(SRC)
@@ -38,8 +39,11 @@ clean:
 	rm -rf $(OBJ)
 
 install:
+	install -d $(DESTDIR)$(datadir)/wordv
+	cp $(LISTS)/* $(DESTDIR)$(datadir)/wordv
 	install -d $(DESTDIR)$(bindir)
 	cd $(BIN) && install $(EXES) $(DESTDIR)$(bindir)
 
 uninstall:
 	for exe in $(EXES); do rm $(DESTDIR)$(bindir)/$$exe; done
+	rm -rf $(DESTDIR)$(datadir)/wordv
