@@ -61,6 +61,9 @@ int main(int argc, char *argv[]) {
 		n = 0;
 	}
 	
+	// Free wordListPath since we don't need it anymore
+	free(wordListPath);
+	
 	/************************
 	 * PLAIN WORD VARIATIONS
 	 ************************/
