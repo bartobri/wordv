@@ -72,6 +72,8 @@ wordv -s
 
 To override the default word list, use the -l option and provide the list
 name as an argument:
+
+```
 wordv -l password
 ```
 
