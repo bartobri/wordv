@@ -3,12 +3,15 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
+#include <dirent.h>
 
 #include "main.h"
 #include "wordlist.h"
 #include "trans.h"
 
 // Function prototypes
+void main_show_word_lists(void);
 void main_shutdown(const char *);
 
 int main(int argc, char *argv[]) {
@@ -27,11 +30,14 @@ int main(int argc, char *argv[]) {
 	trans_init();
 	
 	// Check command options
-	while ((o = getopt(argc, argv, "l:")) != -1) {
+	while ((o = getopt(argc, argv, "l:s")) != -1) {
 		switch (o) {
 			case 'l':
 				wordListName = optarg;
 				break;
+			case 's':
+				main_show_word_lists();
+				return 0;
 			case '?':
 				if (isprint(optopt))
 					fprintf (stderr, "Unknown option '-%c'.\n", optopt);
@@ -327,6 +333,24 @@ int main(int argc, char *argv[]) {
 	fclose(wordList);
 
 	return 0;
+}
+
+void main_show_word_lists(void) {
+	DIR *dp;
+	struct dirent *ep;
+
+	dp = opendir(WORD_LIST_DIR);
+	if (dp != NULL) {
+		while ((ep = readdir(dp))) {
+			if ((ep->d_name)[0] == '.') {
+				continue;
+			}
+			puts(ep->d_name);
+		}
+		closedir (dp);
+	} else {
+		main_shutdown("Couldn't open word list directory.");
+	}
 }
 
 void main_shutdown(const char *errmsg) {
