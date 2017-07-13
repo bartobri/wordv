@@ -1,16 +1,31 @@
 WordV
 ======
 
-WordV is a program that is meant to work in combination with security
-auditing programs like hashcat and aircrack. WordV loops over a provided
-list of common words or passwords and it outputs variations of those words
-in an attempt to help security auditing programs find weak passwords
+WordV is a program that is meant to work in combination with password
+auditing programs like hashcat and aircrack, which take as their input a
+dictionary list of potential passwords in an attempt to crack a hashed
+password. The intent of wordv is to provide a comprehensive and intelligent
+list as input for these programs.
+
+The variations that wordv produces are considered common modifications to
+everyday words when used as passwords. Some examples are:
+
+1. Uppercase the first letter of the word
+2. Add a single digit to the end of the word.
+3. Add a special character to the end of the word.
+4. Add a birthdate to the end of a word.
+5. Change certain letters to numbers in the word. (known as "leet speak")
+6. Combine two words together.
+7. Any combination of 2 or more of the above variations.
+
+WordV can produce over 100 million variations from a single list of
+1000 commonly used words.
 
 Table of Contents
 -----------------
 
 1. [Download and Install](#download-and-install)
-3. [Usage](#usage)r)
+3. [Usage](#usage)
 5. [License](#license)
 6. [Tips](#tips)
 
