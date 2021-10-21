@@ -39,7 +39,7 @@ manager if they are not already installed.
 Once you have the necessary tools installed, follow these instructions:
 
 ```
-https://github.com/bartobri/wordv.git
+git clone https://github.com/bartobri/wordv.git
 cd ./wordv
 make
 sudo make install
