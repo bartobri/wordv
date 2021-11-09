@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
 	char *word = NULL;
 	char *word2 = NULL;
 	char *tmp = NULL;
-	char *tmp2 = NULL;
+	//char *tmp2 = NULL;
 	char *wordListName = DEFAULT_WORD_LIST;
 	char *wordListPath = NULL;
 	FILE *wordList;
@@ -107,57 +107,6 @@ int main(int argc, char *argv[]) {
 		printf("%s$\n", word);
 		printf("%s%%\n", word);
 		printf("%s&\n", word);
-	}
-
-	/************************
-	 * LEET WORD VARIATIONS
-	 ************************/
-
-	// Print leet-transformed word list
-	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
-		strcpy(tmp, word);
-		printf("%s\n", trans_leet(tmp));
-		free(tmp);
-	}
-	
-	// Print leet-transformed word with a single digit at the end
-	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
-		strcpy(tmp, word);
-		for (i = 0; i <= 9; ++i) {
-			printf("%s%i\n", trans_leet(tmp), i);
-		}
-		free(tmp);
-	}
-	
-	// Print leet-transformed word with a recent date at the end (2-digit and 4-digit)
-	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
-		strcpy(tmp, word);
-		for (i = 2017; i >= 1965; --i) {
-			printf("%s%i\n", trans_leet(tmp), i);
-		}
-		for (i = 17; i >= 0; --i) {
-			printf("%s%02i\n", trans_leet(tmp), i);
-		}
-		for (i = 99; i >= 65; --i) {
-			printf("%s%i\n", trans_leet(tmp), i);
-		}
-		free(tmp);
-	}
-	
-	// Print leet-transformed word with a special character at the end
-	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
-		strcpy(tmp, word);
-		printf("%s!\n", trans_leet(tmp));
-		printf("%s@\n", trans_leet(tmp));
-		printf("%s#\n", trans_leet(tmp));
-		printf("%s$\n", trans_leet(tmp));
-		printf("%s%%\n", trans_leet(tmp));
-		printf("%s&\n", trans_leet(tmp));
-		free(tmp);
 	}
 
 	/************************
@@ -259,8 +208,112 @@ int main(int argc, char *argv[]) {
 	}
 
 	/*****************************
+	 * DUAL UPPER WORD VARIATIONS
+	 *****************************/
+
+	// Print dual plain word list
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
+			printf("%s%s\n", trans_upper(word), trans_upper(word2));
+		}
+	}
+	
+	// Print dual plain word with a single digit at the end
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
+			for (i = 0; i <= 9; ++i) {
+				printf("%s%s%i\n", trans_upper(word), trans_upper(word2), i);
+			}
+		}
+	}
+	
+	// Print dual plain word with a recent date at the end (2-digit and 4-digit)
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
+			for (i = 2017; i >= 1965; --i) {
+				printf("%s%s%i\n", trans_upper(word), trans_upper(word2), i);
+			}
+			for (i = 17; i >= 0; --i) {
+				printf("%s%s%02i\n", trans_upper(word), trans_upper(word2), i);
+			}
+			for (i = 99; i >= 65; --i) {
+				printf("%s%s%i\n", trans_upper(word), trans_upper(word2), i);
+			}
+		}
+	}
+	
+	// Print dual plain word with a special character at the end
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
+			printf("%s%s!\n", trans_upper(word), trans_upper(word2));
+			printf("%s%s@\n", trans_upper(word), trans_upper(word2));
+			printf("%s%s#\n", trans_upper(word), trans_upper(word2));
+			printf("%s%s$\n", trans_upper(word), trans_upper(word2));
+			printf("%s%s%%\n", trans_upper(word), trans_upper(word2));
+			printf("%s%s&\n", trans_upper(word), trans_upper(word2));
+		}
+	}
+
+	/************************
+	 * LEET WORD VARIATIONS
+	 ************************/
+
+	/*
+
+	// Print leet-transformed word list
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		tmp = malloc(strlen(word) + 1);
+		strcpy(tmp, word);
+		printf("%s\n", trans_leet(tmp));
+		free(tmp);
+	}
+	
+	// Print leet-transformed word with a single digit at the end
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		tmp = malloc(strlen(word) + 1);
+		strcpy(tmp, word);
+		for (i = 0; i <= 9; ++i) {
+			printf("%s%i\n", trans_leet(tmp), i);
+		}
+		free(tmp);
+	}
+	
+	// Print leet-transformed word with a recent date at the end (2-digit and 4-digit)
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		tmp = malloc(strlen(word) + 1);
+		strcpy(tmp, word);
+		for (i = 2017; i >= 1965; --i) {
+			printf("%s%i\n", trans_leet(tmp), i);
+		}
+		for (i = 17; i >= 0; --i) {
+			printf("%s%02i\n", trans_leet(tmp), i);
+		}
+		for (i = 99; i >= 65; --i) {
+			printf("%s%i\n", trans_leet(tmp), i);
+		}
+		free(tmp);
+	}
+	
+	// Print leet-transformed word with a special character at the end
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		tmp = malloc(strlen(word) + 1);
+		strcpy(tmp, word);
+		printf("%s!\n", trans_leet(tmp));
+		printf("%s@\n", trans_leet(tmp));
+		printf("%s#\n", trans_leet(tmp));
+		printf("%s$\n", trans_leet(tmp));
+		printf("%s%%\n", trans_leet(tmp));
+		printf("%s&\n", trans_leet(tmp));
+		free(tmp);
+	}
+
+	*/
+
+	/*****************************
 	 * DUAL LEET WORD VARIATIONS
 	 *****************************/
+
+	/*
 
 	// Print dual plain word list
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
@@ -328,6 +381,8 @@ int main(int argc, char *argv[]) {
 			free(tmp2);
 		}
 	}
+
+	*/
 	
 	// Close word file
 	fclose(wordList);
