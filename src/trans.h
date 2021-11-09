@@ -4,5 +4,6 @@
 void trans_init(void);
 char *trans_leet(char *);
 char *trans_upper(char *);
+char *trans_all_upper(char *);
 
 #endif

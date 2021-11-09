@@ -34,3 +34,15 @@ char *trans_upper(char *word) {
 	
 	return word;
 }
+
+char *trans_all_upper(char *word) {
+	size_t i;
+
+	for (i = 0; i < strlen(word); ++i) {
+		if (word[i] >= 97 && word[i] <= 122) {
+			word[i] -= 32;
+		}
+	}
+	
+	return word;
+}
