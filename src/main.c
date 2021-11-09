@@ -164,7 +164,7 @@ int main(int argc, char *argv[]) {
 	 * ALL UPPER WORD VARIATIONS
 	 ************************/
 
-	// Print upper-transformed word list
+	// Print all upper-transformed word list
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		tmp = malloc(strlen(word) + 1);
 		strcpy(tmp, word);
@@ -172,7 +172,7 @@ int main(int argc, char *argv[]) {
 		free(tmp);
 	}
 	
-	// Print upper-transformed word with a single digit at the end
+	// Print all upper-transformed word with a single digit at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		tmp = malloc(strlen(word) + 1);
 		strcpy(tmp, word);
@@ -182,7 +182,7 @@ int main(int argc, char *argv[]) {
 		free(tmp);
 	}
 	
-	// Print upper-transformed word with a recent date at the end (2-digit and 4-digit)
+	// Print all upper-transformed word with a recent date at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		tmp = malloc(strlen(word) + 1);
 		strcpy(tmp, word);
@@ -198,7 +198,7 @@ int main(int argc, char *argv[]) {
 		free(tmp);
 	}
 	
-	// Print upper-transformed word with a special character at the end
+	// Print all upper-transformed word with a special character at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		tmp = malloc(strlen(word) + 1);
 		strcpy(tmp, word);
@@ -262,14 +262,14 @@ int main(int argc, char *argv[]) {
 	 * DUAL FIRST UPPER WORD VARIATIONS
 	 *****************************/
 
-	// Print dual plain word list
+	// Print upper-transformed dual word list
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
 			printf("%s%s\n", trans_upper(word), trans_upper(word2));
 		}
 	}
 	
-	// Print dual plain word with a single digit at the end
+	// Print upper-transformed dual word with a single digit at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
 			for (i = 0; i <= 9; ++i) {
@@ -278,7 +278,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 	
-	// Print dual plain word with a recent date at the end (2-digit and 4-digit)
+	// Print upper-transformed dual word with a recent date at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
 			for (i = 2017; i >= 1965; --i) {
@@ -293,7 +293,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 	
-	// Print dual plain word with a special character at the end
+	// Print upper-transformed dual word with a special character at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
 			printf("%s%s!\n", trans_upper(word), trans_upper(word2));
@@ -309,14 +309,14 @@ int main(int argc, char *argv[]) {
 	 * DUAL ALL UPPER WORD VARIATIONS
 	 *****************************/
 
-	// Print dual plain word list
+	// Print all upper-transformed dual word list
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
 			printf("%s%s\n", trans_all_upper(word), trans_all_upper(word2));
 		}
 	}
 	
-	// Print dual plain word with a single digit at the end
+	// Print all upper-transformed dual word with a single digit at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
 			for (i = 0; i <= 9; ++i) {
@@ -325,7 +325,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 	
-	// Print dual plain word with a recent date at the end (2-digit and 4-digit)
+	// Print all upper-transformed dual word with a recent date at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
 			for (i = 2017; i >= 1965; --i) {
@@ -340,7 +340,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 	
-	// Print dual plain word with a special character at the end
+	// Print all upper-transformed dual word with a special character at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
 			printf("%s%s!\n", trans_all_upper(word), trans_all_upper(word2));
