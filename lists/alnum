@@ -1,16 +1,3 @@
-#!comment: This list has been compiled by Solar Designer of Openwall Project,
-#!comment: http://www.openwall.com/wordlists/
-#!comment:
-#!comment: Pre-processed input wordlist files:
-#!comment: english.maybe  length09.txt  length18.txt  length27.txt
-#!comment: english.trash  length10.txt  length19.txt  length28.txt
-#!comment: length02.txt   length11.txt  length20.txt  length29.txt
-#!comment: length03.txt   length12.txt  length21.txt  length30.txt
-#!comment: length04.txt   length13.txt  length22.txt  length31.txt
-#!comment: length05.txt   length14.txt  length23.txt  length32.txt
-#!comment: length06.txt   length15.txt  length24.txt  misc.names
-#!comment: length07.txt   length16.txt  length25.txt  mobythes
-#!comment: length08.txt   length17.txt  length26.txt  org.names
 A2A
 A2FFF
 A2G
