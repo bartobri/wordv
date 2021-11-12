@@ -366,10 +366,10 @@ int main(int argc, char *argv[]) {
 	// Print dual plain word with a recent date at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			for (i = 2017; i >= 1965; --i) {
+			for (i = 2022; i >= 1965; --i) {
 				printf("%s%s%i\n", word, word2, i);
 			}
-			for (i = 17; i >= 0; --i) {
+			for (i = 22; i >= 0; --i) {
 				printf("%s%s%02i\n", word, word2, i);
 			}
 			for (i = 99; i >= 65; --i) {
@@ -387,6 +387,50 @@ int main(int argc, char *argv[]) {
 			printf("%s%s$\n", word, word2);
 			printf("%s%s%%\n", word, word2);
 			printf("%s%s&\n", word, word2);
+		}
+	}
+
+	// Print dual plain word with a single digit at the end
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
+			for (i = 0; i <= 9; ++i) {
+				printf("%s%s%i!\n", word, word2, i);
+				printf("%s%s%i@\n", word, word2, i);
+				printf("%s%s%i#\n", word, word2, i);
+				printf("%s%s%i$\n", word, word2, i);
+				printf("%s%s%i%%\n", word, word2, i);
+				printf("%s%s%i&\n", word, word2, i);
+			}
+		}
+	}
+	
+	// Print dual plain word with a recent date at the end (2-digit and 4-digit)
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
+			for (i = 2022; i >= 1965; --i) {
+				printf("%s%s%i!\n", word, word2, i);
+				printf("%s%s%i@\n", word, word2, i);
+				printf("%s%s%i#\n", word, word2, i);
+				printf("%s%s%i$\n", word, word2, i);
+				printf("%s%s%i%%\n", word, word2, i);
+				printf("%s%s%i&\n", word, word2, i);
+			}
+			for (i = 22; i >= 0; --i) {
+				printf("%s%s%i!\n", word, word2, i);
+				printf("%s%s%i@\n", word, word2, i);
+				printf("%s%s%i#\n", word, word2, i);
+				printf("%s%s%i$\n", word, word2, i);
+				printf("%s%s%i%%\n", word, word2, i);
+				printf("%s%s%i&\n", word, word2, i);
+			}
+			for (i = 99; i >= 65; --i) {
+				printf("%s%s%i!\n", word, word2, i);
+				printf("%s%s%i@\n", word, word2, i);
+				printf("%s%s%i#\n", word, word2, i);
+				printf("%s%s%i$\n", word, word2, i);
+				printf("%s%s%i%%\n", word, word2, i);
+				printf("%s%s%i&\n", word, word2, i);
+			}
 		}
 	}
 
@@ -413,10 +457,10 @@ int main(int argc, char *argv[]) {
 	// Print upper-transformed dual word with a recent date at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			for (i = 2017; i >= 1965; --i) {
+			for (i = 2022; i >= 1965; --i) {
 				printf("%s%s%i\n", trans_upper(word), trans_upper(word2), i);
 			}
-			for (i = 17; i >= 0; --i) {
+			for (i = 22; i >= 0; --i) {
 				printf("%s%s%02i\n", trans_upper(word), trans_upper(word2), i);
 			}
 			for (i = 99; i >= 65; --i) {
@@ -434,6 +478,50 @@ int main(int argc, char *argv[]) {
 			printf("%s%s$\n", trans_upper(word), trans_upper(word2));
 			printf("%s%s%%\n", trans_upper(word), trans_upper(word2));
 			printf("%s%s&\n", trans_upper(word), trans_upper(word2));
+		}
+	}
+
+	// Print upper-transformed dual word with a single digit at the end
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
+			for (i = 0; i <= 9; ++i) {
+				printf("%s%s%i!\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i@\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i#\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i$\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i%%\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i&\n", trans_upper(word), trans_upper(word2), i);
+			}
+		}
+	}
+	
+	// Print upper-transformed dual word with a recent date at the end (2-digit and 4-digit)
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
+			for (i = 2022; i >= 1965; --i) {
+				printf("%s%s%i!\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i@\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i#\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i$\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i%%\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i&\n", trans_upper(word), trans_upper(word2), i);
+			}
+			for (i = 22; i >= 0; --i) {
+				printf("%s%s%i!\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i@\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i#\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i$\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i%%\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i&\n", trans_upper(word), trans_upper(word2), i);
+			}
+			for (i = 99; i >= 65; --i) {
+				printf("%s%s%i!\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i@\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i#\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i$\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i%%\n", trans_upper(word), trans_upper(word2), i);
+				printf("%s%s%i&\n", trans_upper(word), trans_upper(word2), i);
+			}
 		}
 	}
 
@@ -460,10 +548,10 @@ int main(int argc, char *argv[]) {
 	// Print all upper-transformed dual word with a recent date at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			for (i = 2017; i >= 1965; --i) {
+			for (i = 2022; i >= 1965; --i) {
 				printf("%s%s%i\n", trans_all_upper(word), trans_all_upper(word2), i);
 			}
-			for (i = 17; i >= 0; --i) {
+			for (i = 22; i >= 0; --i) {
 				printf("%s%s%02i\n", trans_all_upper(word), trans_all_upper(word2), i);
 			}
 			for (i = 99; i >= 65; --i) {
@@ -481,6 +569,50 @@ int main(int argc, char *argv[]) {
 			printf("%s%s$\n", trans_all_upper(word), trans_all_upper(word2));
 			printf("%s%s%%\n", trans_all_upper(word), trans_all_upper(word2));
 			printf("%s%s&\n", trans_all_upper(word), trans_all_upper(word2));
+		}
+	}
+
+	// Print all upper-transformed dual word with a single digit at the end
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
+			for (i = 0; i <= 9; ++i) {
+				printf("%s%s%i!\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i@\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i#\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i$\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i%%\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i&\n", trans_all_upper(word), trans_all_upper(word2), i);
+			}
+		}
+	}
+	
+	// Print all upper-transformed dual word with a recent date at the end (2-digit and 4-digit)
+	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
+		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
+			for (i = 2022; i >= 1965; --i) {
+				printf("%s%s%i!\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i@\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i#\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i$\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i%%\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i&\n", trans_all_upper(word), trans_all_upper(word2), i);
+			}
+			for (i = 22; i >= 0; --i) {
+				printf("%s%s%i!\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i@\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i#\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i$\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i%%\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i&\n", trans_all_upper(word), trans_all_upper(word2), i);
+			}
+			for (i = 99; i >= 65; --i) {
+				printf("%s%s%i!\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i@\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i#\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i$\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i%%\n", trans_all_upper(word), trans_all_upper(word2), i);
+				printf("%s%s%i&\n", trans_all_upper(word), trans_all_upper(word2), i);
+			}
 		}
 	}
 
