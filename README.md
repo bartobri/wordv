@@ -1,3 +1,5 @@
+Like this project? Consider sponsoring me: [https://github.com/sponsors/bartobri](https://github.com/sponsors/bartobri)
+
 WordV
 ======
 
@@ -27,7 +29,6 @@ Table of Contents
 1. [Download and Install](#download-and-install)
 3. [Usage](#usage)
 5. [License](#license)
-6. [Tips](#tips)
 
 Download and Install
 --------------------
@@ -84,7 +85,3 @@ This program is free software; you can redistribute it and/or modify it under th
 General Public License as published by the Free Software Foundation; either version 3 of the License,
 or (at your option) any later version.  See [LICENSE](LICENSE) for more details.
 
-Tips
-----
-
-[Tips are always appreciated!](https://github.com/bartobri/tips)
