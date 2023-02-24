@@ -19,8 +19,8 @@ int main(int argc, char *argv[]) {
 	size_t n;
 	char *word = NULL;
 	char *word2 = NULL;
-	char *tmp = NULL;
-	char *tmp2 = NULL;
+	char tmp[BUFSIZ];
+	char tmp2[BUFSIZ];
 	//char *tmp2 = NULL;
 	char *wordListName = DEFAULT_WORD_LIST;
 	char *wordListPath = NULL;
@@ -156,25 +156,23 @@ int main(int argc, char *argv[]) {
 
 	// Print upper-transformed word list
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
+		memset(tmp, 0, BUFSIZ);
 		strcpy(tmp, word);
 		printf("%s\n", trans_upper(tmp));
-		free(tmp);
 	}
 	
 	// Print upper-transformed word with a single digit at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
+		memset(tmp, 0, BUFSIZ);
 		strcpy(tmp, word);
 		for (i = 0; i <= 9; ++i) {
 			printf("%s%i\n", trans_upper(tmp), i);
 		}
-		free(tmp);
 	}
 	
 	// Print upper-transformed word with a recent date at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
+		memset(tmp, 0, BUFSIZ);
 		strcpy(tmp, word);
 		for (i = 2022; i >= 1965; --i) {
 			printf("%s%i\n", trans_upper(tmp), i);
@@ -185,12 +183,11 @@ int main(int argc, char *argv[]) {
 		for (i = 99; i >= 65; --i) {
 			printf("%s%i\n", trans_upper(tmp), i);
 		}
-		free(tmp);
 	}
 	
 	// Print upper-transformed word with a special character at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
+		memset(tmp, 0, BUFSIZ);
 		strcpy(tmp, word);
 		printf("%s!\n", trans_upper(tmp));
 		printf("%s@\n", trans_upper(tmp));
@@ -198,12 +195,11 @@ int main(int argc, char *argv[]) {
 		printf("%s$\n", trans_upper(tmp));
 		printf("%s%%\n", trans_upper(tmp));
 		printf("%s&\n", trans_upper(tmp));
-		free(tmp);
 	}
 
 	// Print upper-transformed word with a single digit and special char at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
+		memset(tmp, 0, BUFSIZ);
 		strcpy(tmp, word);
 		for (i = 0; i <= 9; ++i) {
 			printf("%s%i!\n", trans_upper(tmp), i);
@@ -213,12 +209,11 @@ int main(int argc, char *argv[]) {
 			printf("%s%i%%\n", trans_upper(tmp), i);
 			printf("%s%i&\n", trans_upper(tmp), i);
 		}
-		free(tmp);
 	}
 	
 	// Print upper-transformed word with a recent date and special char at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
+		memset(tmp, 0, BUFSIZ);
 		strcpy(tmp, word);
 		for (i = 2022; i >= 1965; --i) {
 			printf("%s%i!\n", trans_upper(tmp), i);
@@ -244,7 +239,6 @@ int main(int argc, char *argv[]) {
 			printf("%s%i%%\n", trans_upper(tmp), i);
 			printf("%s%i&\n", trans_upper(tmp), i);
 		}
-		free(tmp);
 	}
 
 	/************************
@@ -253,25 +247,23 @@ int main(int argc, char *argv[]) {
 
 	// Print all upper-transformed word list
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
+		memset(tmp, 0, BUFSIZ);
 		strcpy(tmp, word);
 		printf("%s\n", trans_all_upper(tmp));
-		free(tmp);
 	}
 	
 	// Print all upper-transformed word with a single digit at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
+		memset(tmp, 0, BUFSIZ);
 		strcpy(tmp, word);
 		for (i = 0; i <= 9; ++i) {
 			printf("%s%i\n", trans_all_upper(tmp), i);
 		}
-		free(tmp);
 	}
 	
 	// Print all upper-transformed word with a recent date at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
+		memset(tmp, 0, BUFSIZ);
 		strcpy(tmp, word);
 		for (i = 2022; i >= 1965; --i) {
 			printf("%s%i\n", trans_all_upper(tmp), i);
@@ -282,12 +274,11 @@ int main(int argc, char *argv[]) {
 		for (i = 99; i >= 65; --i) {
 			printf("%s%i\n", trans_all_upper(tmp), i);
 		}
-		free(tmp);
 	}
 	
 	// Print all upper-transformed word with a special character at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
+		memset(tmp, 0, BUFSIZ);
 		strcpy(tmp, word);
 		printf("%s!\n", trans_all_upper(tmp));
 		printf("%s@\n", trans_all_upper(tmp));
@@ -295,12 +286,11 @@ int main(int argc, char *argv[]) {
 		printf("%s$\n", trans_all_upper(tmp));
 		printf("%s%%\n", trans_all_upper(tmp));
 		printf("%s&\n", trans_all_upper(tmp));
-		free(tmp);
 	}
 
 	// Print all upper-transformed word with a single digit and special char at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
+		memset(tmp, 0, BUFSIZ);
 		strcpy(tmp, word);
 		for (i = 0; i <= 9; ++i) {
 			printf("%s%i!\n", trans_all_upper(tmp), i);
@@ -310,12 +300,11 @@ int main(int argc, char *argv[]) {
 			printf("%s%i%%\n", trans_all_upper(tmp), i);
 			printf("%s%i&\n", trans_all_upper(tmp), i);
 		}
-		free(tmp);
 	}
 	
 	// Print all upper-transformed word with a recent date at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
-		tmp = malloc(strlen(word) + 1);
+		memset(tmp, 0, BUFSIZ);
 		strcpy(tmp, word);
 		for (i = 2022; i >= 1965; --i) {
 			printf("%s%i!\n", trans_all_upper(tmp), i);
@@ -341,7 +330,6 @@ int main(int argc, char *argv[]) {
 			printf("%s%i%%\n", trans_all_upper(tmp), i);
 			printf("%s%i&\n", trans_all_upper(tmp), i);
 		}
-		free(tmp);
 	}
 
 	/*****************************
@@ -442,36 +430,32 @@ int main(int argc, char *argv[]) {
 	// Print upper-transformed dual word list
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			tmp = malloc(strlen(word) + 1);
-			tmp2 = malloc(strlen(word2) + 1);
+			memset(tmp, 0, BUFSIZ);
+			memset(tmp2, 0, BUFSIZ);
 			strcpy(tmp, word);
 			strcpy(tmp2, word2);
 			printf("%s%s\n", trans_upper(tmp), trans_upper(tmp2));
-			free(tmp);
-			free(tmp2);
 		}
 	}
 	
 	// Print upper-transformed dual word with a single digit at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			tmp = malloc(strlen(word) + 1);
-			tmp2 = malloc(strlen(word2) + 1);
+			memset(tmp, 0, BUFSIZ);
+			memset(tmp2, 0, BUFSIZ);
 			strcpy(tmp, word);
 			strcpy(tmp2, word2);
 			for (i = 0; i <= 9; ++i) {
 				printf("%s%s%i\n", trans_upper(tmp), trans_upper(tmp2), i);
 			}
-			free(tmp);
-			free(tmp2);
 		}
 	}
 	
 	// Print upper-transformed dual word with a recent date at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			tmp = malloc(strlen(word) + 1);
-			tmp2 = malloc(strlen(word2) + 1);
+			memset(tmp, 0, BUFSIZ);
+			memset(tmp2, 0, BUFSIZ);
 			strcpy(tmp, word);
 			strcpy(tmp2, word2);
 			for (i = 2022; i >= 1965; --i) {
@@ -483,16 +467,14 @@ int main(int argc, char *argv[]) {
 			for (i = 99; i >= 65; --i) {
 				printf("%s%s%i\n", trans_upper(tmp), trans_upper(tmp2), i);
 			}
-			free(tmp);
-			free(tmp2);
 		}
 	}
 	
 	// Print upper-transformed dual word with a special character at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			tmp = malloc(strlen(word) + 1);
-			tmp2 = malloc(strlen(word2) + 1);
+			memset(tmp, 0, BUFSIZ);
+			memset(tmp2, 0, BUFSIZ);
 			strcpy(tmp, word);
 			strcpy(tmp2, word2);
 			printf("%s%s!\n", trans_upper(tmp), trans_upper(tmp2));
@@ -501,16 +483,14 @@ int main(int argc, char *argv[]) {
 			printf("%s%s$\n", trans_upper(tmp), trans_upper(tmp2));
 			printf("%s%s%%\n", trans_upper(tmp), trans_upper(tmp2));
 			printf("%s%s&\n", trans_upper(tmp), trans_upper(tmp2));
-			free(tmp);
-			free(tmp2);
 		}
 	}
 
 	// Print upper-transformed dual word with a single digit at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			tmp = malloc(strlen(word) + 1);
-			tmp2 = malloc(strlen(word2) + 1);
+			memset(tmp, 0, BUFSIZ);
+			memset(tmp2, 0, BUFSIZ);
 			strcpy(tmp, word);
 			strcpy(tmp2, word2);
 			for (i = 0; i <= 9; ++i) {
@@ -521,16 +501,14 @@ int main(int argc, char *argv[]) {
 				printf("%s%s%i%%\n", trans_upper(tmp), trans_upper(tmp2), i);
 				printf("%s%s%i&\n", trans_upper(tmp), trans_upper(tmp2), i);
 			}
-			free(tmp);
-			free(tmp2);
 		}
 	}
 	
 	// Print upper-transformed dual word with a recent date at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			tmp = malloc(strlen(word) + 1);
-			tmp2 = malloc(strlen(word2) + 1);
+			memset(tmp, 0, BUFSIZ);
+			memset(tmp2, 0, BUFSIZ);
 			strcpy(tmp, word);
 			strcpy(tmp2, word2);
 			for (i = 2022; i >= 1965; --i) {
@@ -557,8 +535,6 @@ int main(int argc, char *argv[]) {
 				printf("%s%s%i%%\n", trans_upper(tmp), trans_upper(tmp2), i);
 				printf("%s%s%i&\n", trans_upper(tmp), trans_upper(tmp2), i);
 			}
-			free(tmp);
-			free(tmp2);
 		}
 	}
 
@@ -569,36 +545,32 @@ int main(int argc, char *argv[]) {
 	// Print all upper-transformed dual word list
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			tmp = malloc(strlen(word) + 1);
-			tmp2 = malloc(strlen(word2) + 1);
+			memset(tmp, 0, BUFSIZ);
+			memset(tmp2, 0, BUFSIZ);
 			strcpy(tmp, word);
 			strcpy(tmp2, word2);
 			printf("%s%s\n", trans_all_upper(tmp), trans_all_upper(tmp2));
-			free(tmp);
-			free(tmp2);
 		}
 	}
 	
 	// Print all upper-transformed dual word with a single digit at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			tmp = malloc(strlen(word) + 1);
-			tmp2 = malloc(strlen(word2) + 1);
+			memset(tmp, 0, BUFSIZ);
+			memset(tmp2, 0, BUFSIZ);
 			strcpy(tmp, word);
 			strcpy(tmp2, word2);
 			for (i = 0; i <= 9; ++i) {
 				printf("%s%s%i\n", trans_all_upper(tmp), trans_all_upper(tmp2), i);
 			}
-			free(tmp);
-			free(tmp2);
 		}
 	}
 	
 	// Print all upper-transformed dual word with a recent date at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			tmp = malloc(strlen(word) + 1);
-			tmp2 = malloc(strlen(word2) + 1);
+			memset(tmp, 0, BUFSIZ);
+			memset(tmp2, 0, BUFSIZ);
 			strcpy(tmp, word);
 			strcpy(tmp2, word2);
 			for (i = 2022; i >= 1965; --i) {
@@ -610,16 +582,14 @@ int main(int argc, char *argv[]) {
 			for (i = 99; i >= 65; --i) {
 				printf("%s%s%i\n", trans_all_upper(tmp), trans_all_upper(tmp2), i);
 			}
-			free(tmp);
-			free(tmp2);
 		}
 	}
 	
 	// Print all upper-transformed dual word with a special character at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			tmp = malloc(strlen(word) + 1);
-			tmp2 = malloc(strlen(word2) + 1);
+			memset(tmp, 0, BUFSIZ);
+			memset(tmp2, 0, BUFSIZ);
 			strcpy(tmp, word);
 			strcpy(tmp2, word2);
 			printf("%s%s!\n", trans_all_upper(tmp), trans_all_upper(tmp2));
@@ -628,16 +598,14 @@ int main(int argc, char *argv[]) {
 			printf("%s%s$\n", trans_all_upper(tmp), trans_all_upper(tmp2));
 			printf("%s%s%%\n", trans_all_upper(tmp), trans_all_upper(tmp2));
 			printf("%s%s&\n", trans_all_upper(tmp), trans_all_upper(tmp2));
-			free(tmp);
-			free(tmp2);
 		}
 	}
 
 	// Print all upper-transformed dual word with a single digit at the end
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			tmp = malloc(strlen(word) + 1);
-			tmp2 = malloc(strlen(word2) + 1);
+			memset(tmp, 0, BUFSIZ);
+			memset(tmp2, 0, BUFSIZ);
 			strcpy(tmp, word);
 			strcpy(tmp2, word2);
 			for (i = 0; i <= 9; ++i) {
@@ -648,16 +616,14 @@ int main(int argc, char *argv[]) {
 				printf("%s%s%i%%\n", trans_all_upper(tmp), trans_all_upper(tmp2), i);
 				printf("%s%s%i&\n", trans_all_upper(tmp), trans_all_upper(tmp2), i);
 			}
-			free(tmp);
-			free(tmp2);
 		}
 	}
 	
 	// Print all upper-transformed dual word with a recent date at the end (2-digit and 4-digit)
 	for (wordlist_reset(); (word = wordlist_get()) != NULL; ) {
 		for (wordlist_reset2(); (word2 = wordlist_get2()) != NULL; ) {
-			tmp = malloc(strlen(word) + 1);
-			tmp2 = malloc(strlen(word2) + 1);
+			memset(tmp, 0, BUFSIZ);
+			memset(tmp2, 0, BUFSIZ);
 			strcpy(tmp, word);
 			strcpy(tmp2, word2);
 			for (i = 2022; i >= 1965; --i) {
@@ -684,8 +650,6 @@ int main(int argc, char *argv[]) {
 				printf("%s%s%i%%\n", trans_all_upper(tmp), trans_all_upper(tmp2), i);
 				printf("%s%s%i&\n", trans_all_upper(tmp), trans_all_upper(tmp2), i);
 			}
-			free(tmp);
-			free(tmp2);
 		}
 	}
 
